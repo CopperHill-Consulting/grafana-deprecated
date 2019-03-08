@@ -32,8 +32,8 @@ import (
 	_ "github.com/grafana/grafana/pkg/tsdb/testdata"
 )
 
-var appName = "CopperHill rAIR"
-var version = "6.0.0"
+var appName = "CopperHill AIR"
+var version = "6.1.0-pre"
 var commit = "be5c61f"
 var buildBranch = "master"
 var buildstamp string
