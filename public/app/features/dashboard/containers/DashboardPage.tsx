@@ -4,6 +4,7 @@ import React, { PureComponent, MouseEvent } from 'react';
 import { hot } from 'react-hot-loader';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
+import config from 'app/core/config';
 
 // Services & Utils
 import { createErrorNotification } from 'app/core/copy/appNotification';
@@ -104,7 +105,7 @@ export class DashboardPage extends PureComponent<Props, State> {
 
     // if we just got dashboard update title
     if (!prevProps.dashboard) {
-      document.title = dashboard.title + ' - CopperHill AIR';
+      document.title = dashboard.title + ' - ' + config.appName;
     }
 
     // handle animation states when opening dashboard settings
