@@ -13,7 +13,7 @@ export class LoadDashboardCtrl {
           $location.path(newUrl);
         } else {
           const meta = homeDash.meta;
-          meta.canSave = meta.canShare = meta.canStar = false;
+          meta.canSave = meta.canShare = meta.canStar = meta.canExport = false;
           $scope.initDashboard(homeDash, $scope);
         }
       });
@@ -56,6 +56,7 @@ export class NewDashboardCtrl {
       {
         meta: {
           canStar: false,
+          canExport: false,
           canShare: false,
           isNew: true,
           folderId: Number($routeParams.folderId),

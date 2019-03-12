@@ -123,6 +123,9 @@ export class DashNav extends PureComponent<Props> {
     });
   };
 
+  onExportPDF = () => {
+  };
+
   renderDashboardTitleSearchButton() {
     const { dashboard } = this.props;
 
@@ -162,7 +165,7 @@ export class DashNav extends PureComponent<Props> {
 
   render() {
     const { dashboard, onAddPanel } = this.props;
-    const { canStar, canSave, canShare, showSettings, isStarred } = dashboard.meta;
+    const { canStar, canSave, canShare, canExport, showSettings, isStarred } = dashboard.meta;
     const { snapshot } = dashboard;
 
     const snapshotUrl = snapshot && snapshot.originalUrl;
@@ -220,6 +223,15 @@ export class DashNav extends PureComponent<Props> {
               classSuffix="share"
               icon="fa fa-share-square-o"
               onClick={this.onOpenShare}
+            />
+          )}
+
+          {canExport && (
+            <DashNavButton
+              tooltip="Export dashboard to PDF"
+              classSuffix="export"
+              icon="fa fa-file-pdf-o"
+              onClick={this.onExportPDF}
             />
           )}
 
