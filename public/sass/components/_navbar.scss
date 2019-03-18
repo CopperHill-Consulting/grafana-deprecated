@@ -160,6 +160,7 @@
 @include media-breakpoint-up(sm) {
   .navbar {
     padding-left: 120px;
+    margin-left: 0;
   }
 
   .sidemenu-open {

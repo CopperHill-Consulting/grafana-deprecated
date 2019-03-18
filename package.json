@@ -17,6 +17,7 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.1.0",
     "@rtsao/plugin-proposal-class-properties": "^7.0.1-patch.1",
+    "@types/angular": "^1.6.6",
     "@types/chalk": "^2.2.0",
     "@types/classnames": "^2.2.6",
     "@types/commander": "^2.12.2",
@@ -138,7 +139,7 @@
     "gui:build": "ts-node --project ./scripts/cli/tsconfig.json ./scripts/cli/index.ts gui:build",
     "gui:releasePrepare": "ts-node --project ./scripts/cli/tsconfig.json ./scripts/cli/index.ts gui:release",
     "gui:publish": "cd packages/grafana-ui/dist && npm publish --access public",
-    "gui:release": "ts-node --project ./scripts/cli/tsconfig.json ./scripts/cli/index.ts gui:release -p",
+    "gui:release": "ts-node --project ./scripts/cli/tsconfig.json ./scripts/cli/index.ts gui:release -p --createVersionCommit",
     "cli": "ts-node --project ./scripts/cli/tsconfig.json ./scripts/cli/index.ts"
   },
   "husky": {
