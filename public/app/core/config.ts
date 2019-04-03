@@ -35,6 +35,7 @@ export class Settings {
   oauth: any;
   disableUserSignUp: boolean;
   loginHint: any;
+  passwordHint: any;
   loginError: any;
   viewersCanEdit: boolean;
   editorsCanOwn: boolean;

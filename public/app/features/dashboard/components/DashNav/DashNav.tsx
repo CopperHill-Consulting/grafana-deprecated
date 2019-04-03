@@ -123,7 +123,31 @@ export class DashNav extends PureComponent<Props> {
     });
   };
 
-  onExportPDF = () => {
+  onExport = () => {
+    //right now, requires CH created extra.js auto-login injection
+    //TODO: move auto-login into GO and change this code accordingly
+    const gridLayout = document.querySelector('.react-grid-layout');
+    const castedGridLayout = gridLayout as HTMLElement;
+    const domainParts = window.location.href.split('/');
+    const domain = domainParts[2];
+    const passObj = {
+      user: 'cphair',
+      pass: 'cph1500',
+      redirect_to: window.location.href + '&kiosk=tv',
+    };
+    const base64Obj = Buffer.from(JSON.stringify(passObj)).toString('base64');
+
+    window.open(
+      `https://gcvlldjbb9.execute-api.us-east-1.amazonaws.com/dev/
+?viewWidth=1920
+&viewHeight=` +
+        castedGridLayout.offsetHeight +
+        `
+&url=http://` +
+        domain +
+        `/login?t=` +
+        base64Obj
+    );
   };
 
   renderDashboardTitleSearchButton() {
@@ -228,10 +252,10 @@ export class DashNav extends PureComponent<Props> {
 
           {canExport && (
             <DashNavButton
-              tooltip="Export dashboard to PDF"
+              tooltip="Export dashboard to PNG"
               classSuffix="export"
-              icon="fa fa-file-pdf-o"
-              onClick={this.onExportPDF}
+              icon="fa fa-file-image-o"
+              onClick={this.onExport}
             />
           )}
 

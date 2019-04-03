@@ -17,6 +17,7 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.1.0",
     "@rtsao/plugin-proposal-class-properties": "^7.0.1-patch.1",
+    "@types/angular": "^1.6.6",
     "@types/chalk": "^2.2.0",
     "@types/classnames": "^2.2.6",
     "@types/commander": "^2.12.2",
@@ -34,6 +35,7 @@
     "@types/react-virtualized": "^9.18.12",
     "angular-mocks": "1.6.6",
     "autoprefixer": "^6.4.0",
+    "axios": "^0.18.0",
     "babel-core": "^7.0.0-bridge",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
@@ -138,7 +140,7 @@
     "gui:build": "ts-node --project ./scripts/cli/tsconfig.json ./scripts/cli/index.ts gui:build",
     "gui:releasePrepare": "ts-node --project ./scripts/cli/tsconfig.json ./scripts/cli/index.ts gui:release",
     "gui:publish": "cd packages/grafana-ui/dist && npm publish --access public",
-    "gui:release": "ts-node --project ./scripts/cli/tsconfig.json ./scripts/cli/index.ts gui:release -p",
+    "gui:release": "ts-node --project ./scripts/cli/tsconfig.json ./scripts/cli/index.ts gui:release -p --createVersionCommit",
     "cli": "ts-node --project ./scripts/cli/tsconfig.json ./scripts/cli/index.ts"
   },
   "husky": {
@@ -171,7 +173,6 @@
     "angular-native-dragdrop": "1.2.2",
     "angular-route": "1.6.6",
     "angular-sanitize": "1.6.6",
-    "axios": "^0.18.0",
     "baron": "^3.0.3",
     "brace": "^0.10.0",
     "classnames": "^2.2.6",

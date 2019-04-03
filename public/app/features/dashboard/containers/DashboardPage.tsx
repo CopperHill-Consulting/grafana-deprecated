@@ -93,11 +93,12 @@ export class DashboardPage extends PureComponent<Props, State> {
   componentWillUnmount() {
     if (this.props.dashboard) {
       this.props.cleanUpDashboard();
+      this.setPanelFullscreenClass(false);
     }
   }
 
   componentDidUpdate(prevProps: Props) {
-    const { dashboard, editview, urlEdit, urlFullscreen, urlPanelId } = this.props;
+    const { dashboard, editview, urlEdit, urlFullscreen, urlPanelId, urlUid } = this.props;
 
     if (!dashboard) {
       return;
@@ -106,6 +107,12 @@ export class DashboardPage extends PureComponent<Props, State> {
     // if we just got dashboard update title
     if (!prevProps.dashboard) {
       document.title = dashboard.title + ' - ' + config.appName;
+    }
+
+    // Due to the angular -> react url bridge we can ge an update here with new uid before the container unmounts
+    // Can remove this condition after we switch to react router
+    if (prevProps.urlUid !== urlUid) {
+      return;
     }
 
     // handle animation states when opening dashboard settings
@@ -164,12 +171,18 @@ export class DashboardPage extends PureComponent<Props, State> {
         fullscreenPanel: null,
         scrollTop: this.state.rememberScrollTop,
       },
-      () => {
-        dashboard.render();
-      }
+      this.triggerPanelsRendering.bind(this)
     );
 
     this.setPanelFullscreenClass(false);
+  }
+
+  triggerPanelsRendering() {
+    try {
+      this.props.dashboard.render();
+    } catch (err) {
+      this.props.notifyApp(createErrorNotification(`Panel rendering error`, err));
+    }
   }
 
   handleFullscreenPanelNotFound(urlPanelId: string) {
