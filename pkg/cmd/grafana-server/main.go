@@ -33,7 +33,7 @@ import (
 )
 
 var appName = "CopperHill AIR"
-var version = "6.1.0-pre"
+var version = "6.0.2"
 var commit = "be5c61f"
 var buildBranch = "master"
 var buildstamp string
@@ -80,7 +80,7 @@ func main() {
 		buildstampInt64 = time.Now().Unix()
 	}
 
-  setting.ApplicationName = appName
+	setting.ApplicationName = appName
 	setting.BuildVersion = version
 	setting.BuildCommit = commit
 	setting.BuildStamp = buildstampInt64

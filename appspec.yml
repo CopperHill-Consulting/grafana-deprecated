@@ -14,6 +14,9 @@ hooks:
   ApplicationStop:
     - location: app-stop.sh
       runas: root
+  BeforeInstall:
+    - location: before-install.sh
+      runas: root
   AfterInstall:
     - location: install-grafana.sh
       runas: root
