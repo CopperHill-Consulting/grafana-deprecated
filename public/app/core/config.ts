@@ -14,7 +14,7 @@ export interface BuildInfo {
 export class Settings {
   appName: string;
   datasources: any;
-  panels: PanelPlugin[];
+  panels: { [key: string]: PanelPlugin };
   appSubUrl: string;
   windowTitlePrefix: string;
   buildInfo: BuildInfo;
@@ -38,7 +38,7 @@ export class Settings {
   passwordHint: any;
   loginError: any;
   viewersCanEdit: boolean;
-  editorsCanOwn: boolean;
+  editorsCanAdmin: boolean;
   disableSanitizeHtml: boolean;
   theme: GrafanaTheme;
 
@@ -61,7 +61,7 @@ export class Settings {
         isEnterprise: false,
       },
       viewersCanEdit: false,
-      editorsCanOwn: false,
+      editorsCanAdmin: false,
       disableSanitizeHtml: false,
     };
 
