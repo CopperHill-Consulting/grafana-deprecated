@@ -34,7 +34,7 @@ import (
 
 var appName = "CopperHill AIR"
 var version = "6.0.2"
-var commit = "be5c61f"
+var commit = ""
 var buildBranch = "master"
 var buildstamp string
 
