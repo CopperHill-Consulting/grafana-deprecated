@@ -141,7 +141,7 @@ export class DashNav extends PureComponent<Props> {
       `https://gcvlldjbb9.execute-api.us-east-1.amazonaws.com/dev/
 ?viewWidth=1920
 &viewHeight=` +
-        castedGridLayout.offsetHeight +
+        (castedGridLayout.offsetHeight + 60) +
         `
 &url=http://` +
         domain +
