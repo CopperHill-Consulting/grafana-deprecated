@@ -17,8 +17,8 @@
 
   <link rel="stylesheet" href="public/build/grafana.[[ .Theme ]].<%= webpack.hash %>.css">
 
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
   <meta name="msapplication-TileColor" content="#2b5797">
   <meta name="msapplication-config" content="public/img/browserconfig.xml">
 </head>
@@ -197,6 +197,7 @@
         <footer class="footer">
           <div class="text-center">
             <ul>
+              <!--
               <li>
                 <a href="http://docs.grafana.org" target="_blank">
                   <i class="fa fa-file-code-o"></i>
@@ -215,9 +216,13 @@
                   Community
                 </a>
               </li>
+            -->
+              <li>
+                <span>CopperHill AIR</span>
+              </li>
               <li>
                 <a href="https://grafana.com" target="_blank">Grafana</a>
-                <span>v[[.BuildVersion]] (commit: [[.BuildCommit]])</span>
+                <span>v[[.BuildVersion]]</span>
               </li>
             </ul>
           </div>
