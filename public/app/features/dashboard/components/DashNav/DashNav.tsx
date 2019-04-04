@@ -146,7 +146,7 @@ export class DashNav extends PureComponent<Props> {
 &viewHeight=` +
         (castedGridLayout.offsetHeight + 150) +
         `&url=` + protocol + `//` + domain + `/login?t=` + base64Obj +
-        `&redirect=`+ encodeURIComponent(window.location.pathname+'&kiosk=tv')
+        `&redirect=`+ encodeURIComponent(window.location.pathname+window.location.search+'&kiosk=tv')
     );
   };
 
