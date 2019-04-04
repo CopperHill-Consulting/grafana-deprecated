@@ -15,6 +15,7 @@ export const Footer: FC<Props> = React.memo(
       <footer className="footer">
         <div className="text-center">
           <ul>
+            {/*
             <li>
               <a href="http://docs.grafana.org" target="_blank">
                 <i className="fa fa-file-code-o" /> Docs
@@ -30,15 +31,15 @@ export const Footer: FC<Props> = React.memo(
                 <i className="fa fa-comments-o" /> Community
               </a>
             </li>
+            */}
             <li>
-              <a href="https://grafana.com" target="_blank">
-                {appName}
-              </a>{' '}
-              <span>
-                v{buildVersion} (commit: {buildCommit})
-              </span>
+              <span>{appName}</span>
             </li>
-            {newGrafanaVersionExists && (
+            <li>
+              <a href="https://grafana.com" target="_blank">Grafana</a>
+              <span> v{buildVersion}</span>
+            </li>
+            {false && newGrafanaVersionExists && (
               <li>
                 <Tooltip placement="auto" content={newGrafanaVersion}>
                   <a href="https://grafana.com/get" target="_blank">

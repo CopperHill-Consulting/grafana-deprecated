@@ -124,29 +124,29 @@ export class DashNav extends PureComponent<Props> {
   };
 
   onExport = () => {
-    //right now, requires CH created extra.js auto-login injection
-    //TODO: move auto-login into GO and change this code accordingly
+
+    //set consts
     const gridLayout = document.querySelector('.react-grid-layout');
     const castedGridLayout = gridLayout as HTMLElement;
     const domainParts = window.location.href.split('/');
+    const protocol = domainParts[0];
     const domain = domainParts[2];
+
+    //dev & prod login creds
     const passObj = {
       user: 'cphair',
-      pass: 'cph1500',
-      redirect_to: window.location.href + '&kiosk=tv',
+      pass: 'cph1500'
     };
     const base64Obj = Buffer.from(JSON.stringify(passObj)).toString('base64');
 
+    //open a new window to a lambda func that screenshots the passed URL
     window.open(
       `https://gcvlldjbb9.execute-api.us-east-1.amazonaws.com/dev/
 ?viewWidth=1920
 &viewHeight=` +
-        (castedGridLayout.offsetHeight + 60) +
-        `
-&url=http://` +
-        domain +
-        `/login?t=` +
-        base64Obj
+        (castedGridLayout.offsetHeight + 150) +
+        `&url=` + protocol + `//` + domain + `/login?t=` + base64Obj +
+        `&redirect=`+ encodeURIComponent(window.location.pathname+'&kiosk=tv')
     );
   };
 
