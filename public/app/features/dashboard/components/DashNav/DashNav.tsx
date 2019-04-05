@@ -17,6 +17,8 @@ import { updateLocation } from 'app/core/actions';
 // Types
 import { DashboardModel } from '../../state';
 
+import customConstants from 'customConstants';
+
 export interface Props {
   dashboard: DashboardModel;
   editview: string;
@@ -132,18 +134,18 @@ export class DashNav extends PureComponent<Props> {
     const protocol = domainParts[0];
     const domain = domainParts[2];
 
-    //dev & prod login creds
+    //login creds
     const passObj = {
-      user: 'cphair',
-      pass: 'cph1500'
+      user: customConstants.user,
+      pass: customConstants.pass
     };
     const base64Obj = Buffer.from(JSON.stringify(passObj)).toString('base64');
 
     //open a new window to a lambda func that screenshots the passed URL
     window.open(
-      `https://gcvlldjbb9.execute-api.us-east-1.amazonaws.com/dev/
-?viewWidth=1920
-&viewHeight=` +
+      customConstants.screenshotURL +
+      `?viewWidth=` + customConstants.defaultScreenshotWidth +
+      `&viewHeight=` +
         (castedGridLayout.offsetHeight + 150) +
         `&urlBase64=` +
         Buffer.from(
