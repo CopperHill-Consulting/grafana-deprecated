@@ -149,11 +149,9 @@ export class DashNav extends PureComponent<Props> {
         (castedGridLayout.offsetHeight + 150) +
         `&urlBase64=` +
         Buffer.from(
-          JSON.stringify(
-            protocol + `//` + domain +
-            `/login?t=` + base64Obj +
-            `&redirect=`+ encodeURIComponent(window.location.pathname+window.location.search+'&kiosk=tv')
-          )
+          protocol + `//` + domain +
+          `/login?t=` + base64Obj +
+          `&redirect=`+ encodeURIComponent(window.location.pathname+window.location.search+'&kiosk=tv'), 'utf-8'
         ).toString('base64')
     );
   };
